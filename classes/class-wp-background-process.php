@@ -7,8 +7,8 @@
 
 namespace KAGG\WP_Background_Processing;
 
-use stdClass;
-use WP_Error;
+use \stdClass;
+use \WP_Error;
 
 /**
  * Abstract WP_Background_Process class.

@@ -7,7 +7,7 @@
 
 namespace KAGG\WP_Background_Processing;
 
-use WP_Error;
+use \WP_Error;
 
 /**
  * Abstract WP_Async_Request class.
