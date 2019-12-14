@@ -201,6 +201,7 @@ abstract class WP_Background_Process extends WP_Async_Request {
 
 		$key = $wpdb->esc_like( $this->identifier . '_batch_' ) . '%';
 
+		// phpcs:disable WordPress.DB.DirectDatabaseQuery.NoCaching
 		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery
 		$count = $wpdb->get_var(
 			$wpdb->prepare(
@@ -209,6 +210,7 @@ abstract class WP_Background_Process extends WP_Async_Request {
 				$key
 			)
 		);
+		// phpcs:enable WordPress.DB.DirectDatabaseQuery.NoCaching
 
 		return ( $count > 0 ) ? false : true;
 	}
@@ -279,6 +281,7 @@ abstract class WP_Background_Process extends WP_Async_Request {
 
 		$key = $wpdb->esc_like( $this->identifier . '_batch_' ) . '%';
 
+		// phpcs:disable WordPress.DB.DirectDatabaseQuery.NoCaching
 		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery
 		$query = $wpdb->get_row(
 			$wpdb->prepare(
@@ -287,6 +290,7 @@ abstract class WP_Background_Process extends WP_Async_Request {
 				$key
 			)
 		);
+		// phpcs:enable WordPress.DB.DirectDatabaseQuery.NoCaching
 
 		$batch       = new stdClass();
 		$batch->key  = $query->$column;
