@@ -328,7 +328,9 @@ abstract class WP_Background_Process extends WP_Async_Request {
 
 			// Update or delete current batch.
 			if ( ! empty( $batch->data ) ) {
-				$this->update( $batch->key, $batch->data );
+				if( ! $this->is_queue_empty() ) {
+					$this->update( $batch->key, $batch->data );
+				}
 			} else {
 				$this->delete( $batch->key );
 			}
